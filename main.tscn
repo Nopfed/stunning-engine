@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwmb170o01iqe"]
+
+[ext_resource type="Texture2D" uid="uid://dm2tgqikq2cys" path="res://space_background.png" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c0qlqd16s2u47" path="res://player.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1000, 1000)
+autoscroll = Vector2(0, 100)
+screen_offset = Vector2(0, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -14.0
+offset_top = -12.0
+offset_right = 1014.0
+offset_bottom = 817.0
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(493, 756)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq8w4gvoqovpj"]
+
+[ext_resource type="Script" uid="uid://bxbitomi4tco3" path="res://bullet.gd" id="1_v7oki"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
+radius = 6.0
+
+[node name="Bullet" type="CharacterBody2D"]
+script = ExtResource("1_v7oki")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -9.0
+offset_top = -65.0
+offset_right = 9.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rtl8c")

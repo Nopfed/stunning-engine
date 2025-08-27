@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0qlqd16s2u47"]
+
+[ext_resource type="Script" uid="uid://vhxdthks5v4f" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sh265"]
+radius = 21.0238
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_4flbx")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -19.0
+offset_top = -52.0
+offset_right = 20.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "o"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sh265")
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
