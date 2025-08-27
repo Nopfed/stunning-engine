@@ -10,8 +10,13 @@ const SIZE = 64
 var canShoot: bool
 var screenWidth
 var screenHeight
+var damage: int = 1
 
 var topWall = 100
+
+# TODO -> Add healthbar
+# TODO -> Take damage if hit by enemy
+# TODO -> Move slower if took damage/lost a wing
 
 
 func _ready() -> void:
@@ -46,10 +51,12 @@ func _physics_process(delta: float) -> void:
 
 func shoot():
 	# TODO -> fix irregular double shoots
+	# TODO -> Add shoot sound
 	
 	var newBullet = bulletScene.instantiate()
 	
 	newBullet.position = position + SHOOT_POSITION
+	newBullet.damage = damage
 	
 	get_parent().call_deferred("add_child", newBullet)
 

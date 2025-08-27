@@ -5,7 +5,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
 radius = 6.0
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Bullet" type="CharacterBody2D" groups=["BULLET"]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_v7oki")
 
 [node name="Label" type="Label" parent="."]

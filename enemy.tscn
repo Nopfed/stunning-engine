@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cknvv3qtxf3kl"]
+
+[ext_resource type="Script" uid="uid://dp6yf8bmewqxc" path="res://enemy.gd" id="1_7k104"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xaro"]
+radius = 15.0
+
+[node name="Enemy" type="Area2D" groups=["ENEMY"]]
+collision_mask = 3
+script = ExtResource("1_7k104")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7xaro")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -15.0
+offset_top = -39.0
+offset_right = 15.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(0, 0.501961, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "o"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="ScreenExitTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="ScreenExitTimer" to="." method="_on_screen_exit_timer_timeout"]
